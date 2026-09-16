@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>流量新闻台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css?v=3" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <header class="top">
+    <div class="brand-block">
+      <p class="eyebrow">VIRAL DESK</p>
+      <h1 class="brand">流量新闻台</h1>
+      <p class="tagline">全球硬新闻 + 中国热搜 + X · 美图背景（Pixiv / Wallhaven）</p>
+    </div>
+    <div class="controls">
+      <div class="status" id="status">准备中…</div>
+      <div class="btn-row">
+        <button type="button" class="btn primary" id="refreshBtn">刷新推送</button>
+        <button type="button" class="btn ghost hidden" id="refreshImagesBtn">换一批美图</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mode-tabs" id="modeTabs" aria-label="功能切换">
+    <button type="button" class="mode-tab active" data-mode="news" id="tabNews">热点发文</button>
+    <button type="button" class="mode-tab" data-mode="images" id="tabImages">美图背景</button>
+  </nav>
+
+  <section id="newsPanel">
+    <nav class="filters" id="filters" aria-label="话题筛选">
+      <button type="button" class="chip active" data-tag="全部">全部</button>
+      <button type="button" class="chip" data-tag="中国热点">中国热点</button>
+      <button type="button" class="chip" data-tag="X热帖">X热帖</button>
+      <button type="button" class="chip" data-tag="政治对立">政治对立</button>
+      <button type="button" class="chip" data-tag="AI模型">AI模型</button>
+      <button type="button" class="chip" data-tag="科技公司">科技公司</button>
+      <button type="button" class="chip" data-tag="科研争议">科研争议</button>
+      <button type="button" class="chip" data-tag="高校">高校</button>
+      <button type="button" class="chip" data-tag="股市">股市</button>
+      <button type="button" class="chip" data-tag="加密货币">加密货币</button>
+    </nav>
+
+    <main>
+      <section class="meta-row">
+        <span id="countLabel">0 条可发</span>
+        <span id="updatedLabel">尚未刷新</span>
+      </section>
+      <div id="grid" class="grid"></div>
+      <p id="empty" class="empty hidden">暂无条目。点「刷新推送」抓取全球源 / 中国热搜 / X。</p>
+    </main>
+  </section>
+
+  <section id="imagesPanel" class="hidden">
+    <nav class="filters" id="imageFilters" aria-label="美图分类">
+      <button type="button" class="chip active" data-img-cat="全部">全部</button>
+      <button type="button" class="chip" data-img-cat="二次元">二次元</button>
+      <button type="button" class="chip" data-img-cat="风景">风景</button>
+    </nav>
+    <main>
+      <section class="meta-row">
+        <span id="imgCountLabel">0 张背景图</span>
+        <span id="imgHint">优先横图高清 · 仅 SFW · 注明出处</span>
+      </section>
+      <div id="imageGrid" class="image-grid"></div>
+      <p id="imgEmpty" class="empty hidden">暂无图片。点「换一批美图」或切换分类。</p>
+    </main>
+  </section>
+
+  <footer class="foot">
+    本地工具 · 新闻来自公开源 · 美图来自 Pixiv 日榜 / Wallhaven / Safebooru（安全级）· 请遵守各站版权与使用条款
+  </footer>
+
+  <script src="/static/app.js?v=3"></script>
+</body>
+</html>
