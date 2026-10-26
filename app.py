@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 CACHE = DATA / "cache.json"
 DATA.mkdir(exist_ok=True)
-
+#114514
 app = FastAPI(title="流量新闻台")
 app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
 
